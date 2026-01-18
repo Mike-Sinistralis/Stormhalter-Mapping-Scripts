@@ -315,7 +315,7 @@ python "bitmap generated sprites.py"
 
 ## Mapping Workflow
 
-This section walks you through the complete process of creating a map from a game replay.
+This section walks you through the complete process of creating a map from a game replay. These concepts apply whether you use the GUI Launcher or the command-line scripts.
 
 ### Step 1: Create a Replay in the Game
 
@@ -330,9 +330,8 @@ This section walks you through the complete process of creating a map from a gam
 
 Before loading the replay, you need to know the segment ID for the area you mapped.
 
-```
-python "get segments.py"
-```
+- **GUI:** Go to the **Mapping** tab and click **List All Segments**
+- **Terminal:** Run `python "get segments.py"`
 
 This shows a list like:
 ```
@@ -345,19 +344,18 @@ ID     Name
 ```
 
 If your segment doesn't exist yet, create it:
-```
-python "create segment.py" --segmentname "Area Name"
-```
+- **GUI:** Go to the **Manage** tab, enter the segment name, and click **Create**
+- **Terminal:** Run `python "create segment.py" --segmentname "Area Name"`
 
 ### Step 3: Load the Replay
 
-Run the replay loader:
-```
-python "load replay.py"
-```
+Load your replay file to extract map data:
+
+- **GUI:** Go to the **Mapping** tab and click **Load Replay File**
+- **Terminal:** Run `python "load replay.py"`
 
 1. A file picker dialog will appear - select your `.sr` replay file
-2. A coordinate prompt will appear for each region transition in the replay
+2. A coordinate prompt will appear for the starting position and each region transition
 
 #### Understanding Transitions
 
@@ -372,6 +370,8 @@ A **transition** occurs whenever your surrounding tiles completely change. This 
 Each transition requires you to enter new coordinates because the game has moved you to a completely different map area. A single replay file may have anywhere from **1 transition** (if you stayed in one area) to **many transitions** (if you moved between multiple areas).
 
 **Important:** When recording a replay, use `/props` immediately after each transition to note your new coordinates. You'll need to enter these coordinates in the same order when loading the replay. The app will attempt to generate an image of your vision from immediately before the transition as sometimes moving between dark spaces can surprise you and be considered a transition, and this happening can completely mess up your mapping effort. It's recommended to try to split up your replays as much as possible so when this happens it doesn't completely ruin the effort put into mapping. (Usually only a problem in areas with a lot of darkness, like Battlegrounds)
+
+**Handling Unexpected Transitions:** Sometimes darkness tiles can be misread as a transition. If you encounter an unexpected transition prompt and don't know the correct coordinates, **click Cancel (X) to stop processing the replay**. This prevents bad data from being written to the database. All previously processed data from the replay is saved. Generate maps to see the current state, then record a new replay to continue mapping from where you left off.
 
 #### Entering Coordinates
 
@@ -398,33 +398,36 @@ After the first region, subsequent prompts will show a map image of where you we
 
 Once the replay is loaded, generate the map images:
 
-```
-# Generate just the map you worked on
-python "make maps.py" --segment 1 --region 5
+- **GUI:** Go to the **Mapping** tab, optionally enter Segment/Region IDs to filter, and click **Generate Maps**
+- **Terminal:**
+  ```
+  # Generate just the map you worked on
+  python "make maps.py" --segment 1 --region 5
 
-# Or generate all maps
-python "make maps.py"
-```
+  # Or generate all maps
+  python "make maps.py"
+  ```
 
-Map images are saved as PNG files in the output folder.
+Map images are saved as PNG files in the `newmaps` folder, organized by segment name.
 
 ### Step 5: Name Your Region (Optional)
 
-Give the region a descriptive name:
-```
-python "name segmentregion.py" --segment 1 --region 5 --regionname "Underground Dungeon Level 1"
-```
+Give the region a descriptive name so it's easier to identify:
+
+- **GUI:** Go to the **Manage** tab, enter the Segment ID, Region ID, and new name, then click **Rename**
+- **Terminal:** Run `python "name segmentregion.py" --segment 1 --region 5 --regionname "Underground Dungeon Level 1"`
 
 ### Re-mapping an Area
 
-If you made a mistake or want to re-map an area:
+Use this **only** if bad map data was written due to an unexpected transition (e.g., darkness tiles were misread as a transition and you entered wrong coordinates). The solution is to delete the affected region entirely and start over:
 
 1. Delete the existing data:
-   ```
-   python "delete segmentregion.py" --segment 1 --region 5
-   ```
+   - **GUI:** Go to the **Manage** tab, enter the Segment and Region IDs, and click **Delete**
+   - **Terminal:** Run `python "delete segmentregion.py" --segment 1 --region 5`
 
-2. Load a new replay following steps 3-4 above
+2. Record a new replay and load it following steps 3-4 above
+
+**Note:** This permanently deletes ALL tile data for the specified region. Only do this if the region has corrupted data that needs to be cleared.
 
 ---
 

@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE/Editor settings
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+# Claude
+.claude/
+
+# Generated output directories
+newmaps/
+unzip/
+unxnb/
+backup/
+
+# Temporary/debug files
+trace.txt
+transition_view.png
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Font files (if you want to track these, remove this line)
+# font/
+
+# Database credentials - uncomment if you have separate config
+# db_config.py

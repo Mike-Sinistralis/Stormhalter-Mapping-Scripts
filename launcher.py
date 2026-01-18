@@ -591,11 +591,15 @@ class MapperLauncher:
         delete_frame = ttk.LabelFrame(tab, text="Delete Region Data", padding="10")
         delete_frame.pack(fill=tk.X)
 
-        ttk.Label(delete_frame, text="Use this when you accidentally entered wrong coordinates while loading a replay.\n"
-            "Deleting the region data lets you re-load the replay with correct coordinates.",
+        ttk.Label(delete_frame,
+            text="Use this ONLY if bad map data was written due to an unexpected transition "
+                 "when loading a replay (e.g., darkness tiles misread as a transition caused "
+                 "wrong coordinates to be entered).\n\n"
+                 "The solution is to delete the affected region entirely and re-map it from scratch "
+                 "with a new replay.",
             wraplength=500, justify="center").pack(pady=(0, 5))
 
-        ttk.Label(delete_frame, text="Warning: This permanently deletes all tile data for a region!",
+        ttk.Label(delete_frame, text="Warning: This permanently deletes ALL tile data for the specified region!",
             foreground="red").pack()
 
         input_frame3 = ttk.Frame(delete_frame)

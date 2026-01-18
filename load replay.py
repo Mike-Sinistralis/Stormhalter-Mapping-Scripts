@@ -220,6 +220,7 @@ def generate_transition_view(srno, px, py):
 
 def get_start_coords(transition_img=None):
     result = []
+    is_first_prompt = transition_img is None
 
     def validate_data():
         nonlocal result
@@ -241,12 +242,37 @@ def get_start_coords(transition_img=None):
         root.destroy()
 
     root = tk.Tk()
-    root.title("Region Transition")
     root.protocol("WM_DELETE_WINDOW", close_window)
 
-    # If we have a transition image, display it
-    if transition_img is not None:
-        # Scale image to fit reasonably in dialog (max 400px)
+    if is_first_prompt:
+        # First prompt - starting position
+        root.title("Starting Position")
+
+        title_label = tk.Label(root, text="Starting Position", font=("TkDefaultFont", 12, "bold"))
+        title_label.pack(pady=(10, 5))
+
+        desc = tk.Label(root,
+            text="Enter the coordinates where your character is standing at the "
+                 "BEGINNING of this replay.",
+            wraplength=450, justify="center")
+        desc.pack(fill="x", padx=10, pady=(5, 10))
+
+        desc2 = tk.Label(root,
+            text="Tip: Use /props in-game to see your coordinates as: x, y, [region]\n\n"
+                 "Segment ID is the world area (use 'List All Segments' to see IDs).\n"
+                 "X and Y are your tile coordinates.\n"
+                 "Region ID identifies the specific map level/area.",
+            wraplength=450, justify="center", fg="gray")
+        desc2.pack(fill="x", padx=10, pady=(0, 10))
+
+    else:
+        # Transition prompt - show image and explain
+        root.title("Transition Detected")
+
+        title_label = tk.Label(root, text="Transition Detected", font=("TkDefaultFont", 12, "bold"))
+        title_label.pack(pady=(10, 5))
+
+        # Scale and display the transition image
         img_width, img_height = transition_img.size
         max_size = 500
         if img_width > max_size or img_height > max_size:
@@ -257,26 +283,37 @@ def get_start_coords(transition_img=None):
         else:
             display_img = transition_img
 
-        # Convert to PhotoImage for tkinter (specify master to avoid conflicts)
         photo = ImageTk.PhotoImage(display_img, master=root)
         img_label = tk.Label(root, image=photo)
         img_label.image = photo  # Keep reference to prevent garbage collection
         img_label.pack(pady=5)
 
-        label = tk.Label(root, text="Last position before transition")
-        label.pack()
+        img_caption = tk.Label(root, text="Map state immediately before this transition",
+            fg="gray", font=("TkDefaultFont", 9, "italic"))
+        img_caption.pack()
 
-    # Description of what's needed
-    desc = tk.Label(root, text="Enter the coordinates where your character is now standing.",
-        wraplength=400, justify="center")
-    desc.pack(fill="x", padx=10, pady=(10, 5))
+        desc = tk.Label(root,
+            text="A transition was detected. Transitions occur when your surrounding tiles "
+                 "completely change - such as climbing stairs, using ropes/ladders, stepping "
+                 "through teleporters/portals, falling into pits, or entering/exiting buildings.\n\n"
+                 "Enter the coordinates where your character is standing AFTER this transition.",
+            wraplength=450, justify="center")
+        desc.pack(fill="x", padx=10, pady=(10, 5))
 
-    desc2 = tk.Label(root, text="Segment ID is the world area (run get segments.py to list).\n"
-        "X/Y are your tile coordinates in the region.\n"
-        "Region ID identifies the specific map area.\n\n"
-        "Tip: Use /props in-game to see x, y, [region]",
-        wraplength=400, justify="center", fg="gray")
-    desc2.pack(fill="x", padx=10, pady=(0, 10))
+        desc2 = tk.Label(root,
+            text="Note: Sometimes darkness tiles can be misread as a transition. "
+                 "The image above shows where you were before the transition to help "
+                 "you identify what happened.\n\n"
+                 "Tip: Use /props in-game immediately after transitions to note coordinates.",
+            wraplength=450, justify="center", fg="gray")
+        desc2.pack(fill="x", padx=10, pady=(0, 5))
+
+        desc3 = tk.Label(root,
+            text="UNEXPECTED TRANSITION? Click Cancel (X) to stop processing this replay. "
+                 "This prevents bad data from being written. All previously processed data "
+                 "is saved. Generate maps to see current state, then record a new replay.",
+            wraplength=450, justify="center", fg="red")
+        desc3.pack(fill="x", padx=10, pady=(0, 10))
 
     label = tk.Label(root, text="Format: segment, x, y, region")
     label.pack(fill="x")
