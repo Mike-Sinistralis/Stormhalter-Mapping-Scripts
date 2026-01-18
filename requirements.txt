@@ -1,0 +1,13 @@
+beautifulsoup4==4.14.2
+cffi==2.0.0
+lxml==6.0.2
+lz4==4.4.4
+numpy==2.3.3
+pillow==11.3.0
+psycopg==3.2.10
+psycopg-binary==3.2.10
+pycparser==2.23
+soundfile==0.13.1
+soupsieve==2.8
+typing_extensions==4.15.0
+tzdata==2025.2

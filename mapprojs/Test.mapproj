@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<segment name="Test" version="0.107.0.0">
+  <script name="Internal" enabled="true">
+    <block><![CDATA[]]></block>
+    <block><![CDATA[
+]]></block>
+    <block><![CDATA[]]></block>
+  </script>
+  <regions>
+    <region>
+      <id>101</id>
+      <name>Test Region</name>
+      <height>10</height>
+      <bounds left="0" top="-48" right="16" bottom="8" />
+
+        <tile x="13" y="13">
+            <component type="WaterComponent">
+                <ground>374</ground>
+                <movementCost>3</movementCost>
+            </component>
+            <component type="WallComponent">
+                <color r="0" g="0" b="0" a="255" />
+                <wall>104</wall>
+                <destroyed>41</destroyed>
+                <ruins>45</ruins>
+                <indestructible>true</indestructible>
+            </component>
+        </tile>
+
+      <tile x="0" y="1">
+        <component type="ObstructionComponent">
+          <color r="86" g="75" b="71" a="255" />
+          <obstruction>165</obstruction>
+          <blockVision>true</blockVision>
+        </component>
+        <component type="WaterComponent">
+          <ground>22</ground>
+          <movementCost>3</movementCost>
+        </component>
+        <component type="WallComponent">
+          <wall>149</wall>
+          <destroyed>150</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+      </tile>
+      <tile x="1" y="1">
+        <component type="ObstructionComponent">
+          <color r="86" g="75" b="71" a="255" />
+          <obstruction>165</obstruction>
+          <blockVision>true</blockVision>
+        </component>
+        <component type="WaterComponent">
+          <ground>22</ground>
+          <movementCost>3</movementCost>
+        </component>
+      </tile>
+      <tile x="2" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+      </tile>
+      <tile x="3" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="4" y="1">
+        <component type="WallComponent">
+          <color r="151" g="0" b="255" a="255" />
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="5" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="6" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="7" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="8" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="9" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="10" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="11" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="12" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="13" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="14" y="1">
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+      </tile>
+      <tile x="15" y="1">
+        <component type="FloorComponent">
+          <ground>13</ground>
+        </component>
+        <component type="ObstructionComponent">
+          <obstruction>266</obstruction>
+          <blockVision>true</blockVision>
+        </component>
+        <component type="WallComponent">
+          <wall>145</wall>
+          <destroyed>147</destroyed>
+          <ruins>44</ruins>
+          <indestructible>true</indestructible>
+        </component>
+      </tile>
+      <tile x="5" y="4">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="6" y="4">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="7" y="4">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="8" y="4">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="5" y="5">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="6" y="5">
+        <component type="StaticComponent">
+          <static>10</static>
+        </component>
+      </tile>
+      <tile x="7" y="5">
+        <component type="StaticComponent">
+          <static>10</static>
+        </component>
+        <component type="TreeComponent">
+          <tree>98</tree>
+          <canGrow>true</canGrow>
+        </component>
+      </tile>
+      <tile x="8" y="5">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="5" y="6">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="6" y="6">
+        <component type="StaticComponent">
+          <static>10</static>
+        </component>
+        <component type="TreeComponent">
+          <tree>100</tree>
+          <canGrow>true</canGrow>
+        </component>
+      </tile>
+      <tile x="7" y="6">
+        <component type="StaticComponent">
+          <static>10</static>
+        </component>
+      </tile>
+      <tile x="8" y="6">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="5" y="7">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="6" y="7">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="7" y="7">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+      <tile x="8" y="7">
+        <component type="StaticComponent">
+          <static>4</static>
+        </component>
+      </tile>
+    </region>
+  </regions>
+  <locations />
+  <subregions />
+  <entities />
+  <spawns />
+  <treasures />
+  <hoards />
+</segment>
