@@ -5,7 +5,7 @@ from psycopg.rows import dict_row
 DB_CONFIG = {
     "dbname": "stormhalter",
     "user": "postgres",
-    "password": "Odie_14232",
+    "password": "PASSWORD_GOES_HERE",
 }
 
 
